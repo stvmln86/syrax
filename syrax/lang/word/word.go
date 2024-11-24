@@ -25,10 +25,10 @@ func New(atoms []string, unit *unit.Unit) *Word {
 }
 
 // Parse returns a new Word from a string.
-func Parse(word string) (*Word, error) {
-	elems := Regex.FindStringSubmatch(word)
+func Parse(text string) (*Word, error) {
+	elems := Regex.FindStringSubmatch(text)
 	if len(elems) < 4 {
-		return nil, fmt.Errorf("cannot parse Word %q", word)
+		return nil, fmt.Errorf("cannot parse Word %q", text)
 	}
 
 	atoms := strings.Split(elems[1], ",")

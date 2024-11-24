@@ -21,10 +21,10 @@ func New(base, item string) *Unit {
 }
 
 // Parse returns a new Unit from a string.
-func Parse(unit string) (*Unit, error) {
-	elems := Regex.FindStringSubmatch(unit)
+func Parse(text string) (*Unit, error) {
+	elems := Regex.FindStringSubmatch(text)
 	if len(elems) < 3 {
-		return nil, fmt.Errorf("cannot parse Unit %q", unit)
+		return nil, fmt.Errorf("cannot parse Unit %q", text)
 	}
 
 	return New(elems[1], elems[2]), nil
